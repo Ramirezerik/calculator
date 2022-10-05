@@ -1,0 +1,59 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background: linear-gradient(to right, #e41010, #3d0dc4);
+}
+.calculator-grid{
+    display: grid;
+    /* to space out top of grid  */
+    margin-top: 2rem;
+    justify-content: center;
+    grid-template-columns: repeat(4, 6rem);
+    /* the row shows up to 7rem and the auto allows for any larger size numbers to expand to the next line  */
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+.calculator-grid > button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+
+}
+
+/* this allows us to hover our mouse over each button to know it is selected */
+.calculator-grid > button:hover,
+.calculator-grid > button:focus{
+    background-color: rgba(255, 255, 255, .9);
+}
+
+
+.span-two{
+    grid-column: span 2;
+}
+
+
+.output{
+    grid-column: 1 /-1;
+    background: rgba(0,0,0, .50);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: .75rem;
+    /* this allows our numerical value to wrap properly  */
+    word-wrap: break-word;
+    /* this allows so we can wrao when we have a really long output */
+    word-break: break-all;
+}
+.output .previous-operand{
+    color: rgba(255, 255, 255,.75);
+    font-size: 1.5rem;
+}
+.output .current-operand{
+    color: white;
+    font-size: 2.5rem;
+}
